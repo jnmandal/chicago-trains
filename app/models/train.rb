@@ -6,4 +6,10 @@ class Train < ActiveRecord::Base
       Train.create(row.to_hash)
     end
   end
+
+  def self.to_csv
+    CSV.generate(headers: %w[TRAIN_LINE, ROUTE_NAME, RUN_NUMBER, OPERATOR_ID], write_headers: true) do |csv|
+      Train.all.each { |train| csv << [train.line, train.route, train.run, train.operator] }
+    end
+  end
 end

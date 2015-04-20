@@ -3,6 +3,10 @@ class TrainsController < ApplicationController
 
   def index
     @trains = Train.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @trains.to_csv }
+    end
   end
 
   def show
