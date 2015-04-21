@@ -30,7 +30,7 @@ class Train < ActiveRecord::Base
   end
 
   def set_flags
-    unless set_line_flag || set_route_flag || set_run_flag || set_operator_flag
+    unless set_line_flag || set_route_flag || set_run_flag
       self.flag = false
       self.flag_info = nil
     end
@@ -56,14 +56,6 @@ class Train < ActiveRecord::Base
     unless %w[E M A T].include? self.run[0]
       self.flag = true
       self.flag_info = "Check that run data field is correct."
-      true
-    end
-  end
-
-  def set_operator_flag
-    unless  /^[A-Z]{2}[a-z]+$/ =~ self.operator
-      self.flag = true
-      self.flag_info = "Check that operator data field is correct."
       true
     end
   end
