@@ -2,7 +2,7 @@ class TrainsController < ApplicationController
   before_action :set_train, only: [:show, :edit, :update, :destroy]
 
   def index
-    @trains = Train.all
+    @trains = Train.order :run
     respond_to do |format|
       format.html
       format.csv { send_data @trains.to_csv }
