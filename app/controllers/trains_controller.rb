@@ -63,6 +63,6 @@ class TrainsController < ApplicationController
     end
 
     def train_params
-      params[:train]
+      params.require(:train).permit(:line, :route, :run, :operator, :flag, :flag_info)
     end
 end
