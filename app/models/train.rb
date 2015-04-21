@@ -1,6 +1,7 @@
 class Train < ActiveRecord::Base
   before_validation :strip_whitespace
   validates :run, uniqueness: true
+  before_save :set_flags
 
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
@@ -21,11 +22,49 @@ class Train < ActiveRecord::Base
     end
   end
 
-  private
-    def strip_whitespace
-      self.line     = self.line.strip     if self.line
-      self.route    = self.route.strip    if self.route
-      self.run      = self.run.strip      if self.run
-      self.operator = self.operator.strip if self.operator
+  def strip_whitespace
+    self.line     = self.line.strip     if self.line
+    self.route    = self.route.strip    if self.route
+    self.run      = self.run.strip      if self.run
+    self.operator = self.operator.strip if self.operator
+  end
+
+  def set_flags
+    unless set_line_flag || set_route_flag || set_run_flag || set_operator_flag
+      self.flag = false
+      self.flag_info = nil
     end
+  end
+
+  def set_line_flag
+    unless %w[El Metra Amtrak Trolley].include? self.line
+      self.flag = true
+      self.flag_info = "Check that line data field is correct."
+      true
+    end
+  end
+
+  def set_route_flag
+    unless self.route.length > 0
+      self.flag = true
+      self.flag_info = "Check that route data field is correct."
+      true
+    end
+  end
+
+  def set_run_flag
+    unless %w[E M A T].include? self.run[0]
+      self.flag = true
+      self.flag_info = "Check that run data field is correct."
+      true
+    end
+  end
+
+  def set_operator_flag
+    unless  /^[A-Z]{2}[a-z]+$/ =~ self.operator
+      self.flag = true
+      self.flag_info = "Check that operator data field is correct."
+      true
+    end
+  end
 end

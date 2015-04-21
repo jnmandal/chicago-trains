@@ -34,10 +34,12 @@
         <td><%= train.operator %></td>
         <td><%= link_to 'Edit', edit_train_path(train) %></td>
         <td><%= link_to 'Destroy', train, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= train.flag %></td>
+        <td><%= train.flag_info %></td>
       </tr>
     <% end %>
     <tr>
-      <td colspan="7"><%= link_to 'New Train', new_train_path %>
+      <td colspan="8"><%= link_to 'New Train', new_train_path %>
       </td>
     </tr>
   </tbody>
