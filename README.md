@@ -14,7 +14,7 @@ and navigate to localhost:3000
 
 ## data
 
-From the command line, random data can be generated using the <tt>rake db:seed</tt> command. CSVs must be uploaded from the app itself. CSV data is presumed to be in the standard chicago-train format with a header row of four columns in the order: train_line, route_name, run_number, operator_id.
+From the command line, random data can be generated using the <tt>rake db:seed</tt> command. CSVs must be uploaded from the app itself. CSV data is presumed to be in the standard chicago-train format with a header row of four columns in the order: train_line, route_name, run_number, operator_id. Data not in the standard chicago-trains format will be flagged and the user will be prompted to make corrections.
 
 ## testing
 
