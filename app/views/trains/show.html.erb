@@ -1,4 +1,18 @@
-<p id="notice"><%= notice %></p>
+<h1>Train</h1>
 
-<%= link_to 'Edit', edit_train_path(@train) %> |
-<%= link_to 'Back', trains_path %>
+<p id="notice"><%= notice %></p>
+<div class="alert alert-warning" role="alert">
+  <strong>Data Flag:</strong> <%= @train.flag_info %> You may wish to edit it.
+</div>
+<p><strong>Line: </strong><%= @train.line %></p>
+<p><strong>Route: </strong><%= @train.route %></p>
+<p><strong>Run: </strong><%= @train.run %></p>
+<p><strong>Operator: </strong><%= @train.operator %></p>
+<% if @train.flag %>
+
+<% end %>
+
+
+<p><%= link_to 'Edit', edit_train_path(@train), class: "btn btn-warning" %></p>
+<p><%= link_to 'Destroy', @train, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></p>
+<p><%= link_to 'Back', trains_path, class: "btn btn-info" %></p>
