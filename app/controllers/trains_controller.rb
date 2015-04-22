@@ -53,8 +53,12 @@ class TrainsController < ApplicationController
   end
 
   def import
-    Train.import(params[:file])
-    redirect_to root_url
+    if params[:file]
+      Train.import(params[:file])
+      redirect_to root_url, notice: 'CSV file imported.'
+    else
+      redirect_to :trains, notice: 'No file attached.'
+    end
   end
 
   private
