@@ -45,27 +45,27 @@ describe Train do
     end
 
     it "flags invalid data in line" do
-      t = Train.create(
+      t = Train.create!(
         line:     "Netra",
         route:    "Red Line",
-        run:      "E432",
+        run:      "E433",
         operator: "LHill"
       )
       expect(t.flag).to be(true)
     end
 
     it "flags empty data in route" do
-      t = Train.create(
+      t = Train.create!(
         line:     "El",
         route:     " ",
-        run:      "E432",
+        run:      "E434",
         operator: "LHill"
       )
       expect(t.flag).to be(true)
     end
 
     it "flags empty data in run" do
-      t = Train.create(
+      t = Train.create!(
         line:     "El",
         run:      " ",
         route:    "Red Line",
@@ -75,7 +75,7 @@ describe Train do
     end
 
     it "flags invalid data in run" do
-      t = Train.create(
+      t = Train.create!(
         line:     "El",
         run:      "H22",
         route:    "Red Line",

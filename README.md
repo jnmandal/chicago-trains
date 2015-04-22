@@ -18,7 +18,9 @@ From the command line, random data can be generated using the <tt>rake db:seed</
 
 ## testing
 
-All tests are written with the rspec library. They can be run with
+Testing is a combination of capybara and rspec testing. Headed testing (for javascript DOM manipulation) requires selenium webdriver and a local installation of the firefox browser.
+
+All tests are run with the rspec library. They can be run with
 ```
 rspec spec/
 ```

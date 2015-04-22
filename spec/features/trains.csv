@@ -1,0 +1,22 @@
+TRAIN_LINE, ROUTE_NAME, RUN_NUMBER, OPERATOR_ID
+El, Brown Line, E102, SJones
+Metra, UPN, M405, AJohnson
+Amtrak, Hiawatha, A006, LBeck
+El, Red Line, E432, LHill
+Amtrak, Hiawatha, A005, LBeck
+Metra, , M623, ESanders
+El, Green Line, E312, GIsland
+Trolley, Willis Tower, T666, JDoe
+El, Red Line, E432, LHill
+El, Blue Line, E223, MHare
+Metra, Oak Park, M559, EGesell
+Amtrak, Indianapolis, A317, ALuck
+Amtrak, Cleveland, A236, LJames
+Netra, Gary, M444, MJackson
+El, Addison, E108, SCastro
+Metra, Arlington Heights, , CKeem
+El, Sox 35th, E790, CSale
+Amtrak, St. Louis, A654, YMolina
+Metra, Elgin, M289, EKingery
+, , , 
+ Amtrak, Detroit, A999, AWilson
